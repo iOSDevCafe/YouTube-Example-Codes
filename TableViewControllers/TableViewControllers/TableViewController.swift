@@ -1,31 +1,25 @@
 //
 //  TableViewController.swift
-//  TableViewSelfSizing
+//  TableViewControllers
 //
-//  Created by iOS Café on 09/08/2017.
+//  Created by iOS Café on 19/08/2017.
 //  Copyright © 2017 iOS Café. All rights reserved.
 //
 
 import UIKit
 
-extension String{
-    static var cellIdentifier: String{
-        return "cell"
-    }
-}
-
 class TableViewController: UITableViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight =
-        UITableViewAutomaticDimension
-        
-        tableView.estimatedRowHeight = 150
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,20 +29,25 @@ class TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 100
+        return 10
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: .cellIdentifier, for: indexPath) as? Cell else {return .init()}
-        
-        cell.myLabel.text = "Long text some more long text Long text some more long text Long text some more long text Long text some more long text Long text some more long text Long text some more long text Long text some more long text Long text some more long text Long text some more long text Long text some more long text Long text some more long text"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? Cell else {return .init()}
 
+        cell.myLabel.text = "Hello, World!"
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section + 1)"
     }
 
     /*
