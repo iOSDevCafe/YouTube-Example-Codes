@@ -22,11 +22,13 @@ func | (lhs: Bit, rhs: Bit) -> Bit{
 }
 
 func & (lhs: Bit, rhs: Bit) -> Bit{
+    
     if lhs == .one && rhs == .one{
         return .one
     } else {
         return .zero
     }
+    
 }
 
 prefix func ! (bit: Bit) -> Bit{
